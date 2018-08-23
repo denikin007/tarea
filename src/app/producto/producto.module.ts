@@ -3,19 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { ProductoItemComponent } from './producto-item/producto-item.component';
 import { ProductoListComponent } from './producto-list/producto-list.component';
-import { ProductoCreateComponent } from './producto-create/producto-create.component';
-import { ProductoEditComponent } from './producto-edit/producto-edit.component';
-
+import { ProductoRoutingModule } from './producto-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [ProductoItemComponent, ProductoListComponent, ProductoCreateComponent, ProductoEditComponent],
+  declarations: [ProductoItemComponent, ProductoListComponent],
   exports: [
-    // ProductoItemComponent,
-    // ProductoListComponent
+     ProductoItemComponent,
+     ProductoListComponent
   ]
 })
 export class ProductoModule { 
