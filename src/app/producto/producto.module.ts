@@ -4,16 +4,27 @@ import { FormsModule } from "@angular/forms";
 import { ProductoItemComponent } from './producto-item/producto-item.component';
 import { ProductoListComponent } from './producto-list/producto-list.component';
 import { ProductoRoutingModule } from './producto-routing.module';
+import { ProductoCreateComponent } from './producto-create/producto-create.component';
+import { ProductoEditComponent } from './producto-edit/producto-edit.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ProductoRoutingModule
   ],
-  declarations: [ProductoItemComponent, ProductoListComponent],
+  declarations: [
+    ProductoItemComponent,
+    ProductoListComponent, 
+    ProductoCreateComponent, 
+    ProductoEditComponent
+  ],
   exports: [
      ProductoItemComponent,
-     ProductoListComponent
+     ProductoListComponent,
+     ProductoEditComponent,
+     ProductoCreateComponent
+
   ]
 })
 export class ProductoModule { 
