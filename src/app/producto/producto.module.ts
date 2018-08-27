@@ -6,12 +6,14 @@ import { ProductoListComponent } from './producto-list/producto-list.component';
 import { ProductoRoutingModule } from './producto-routing.module';
 import { ProductoCreateComponent } from './producto-create/producto-create.component';
 import { ProductoEditComponent } from './producto-edit/producto-edit.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ProductoRoutingModule
+    ProductoRoutingModule,
+    MaterialModule
   ],
   declarations: [
     ProductoItemComponent,
@@ -25,6 +27,8 @@ import { ProductoEditComponent } from './producto-edit/producto-edit.component';
      ProductoEditComponent,
      ProductoCreateComponent
 
+  ], 
+  providers: [
   ]
 })
 export class ProductoModule { 
