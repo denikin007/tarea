@@ -1,3 +1,36 @@
-<p>
-  producto-create works!
-</p>
+<form action="" class="container">
+    <mat-card class="">
+        <mat-card-title>
+            Crear el Producto
+        </mat-card-title>
+        <mat-card-content>
+            <mat-form-field class="input-group">
+                <input class="form-control" matInput placeholder="Nombre del Producto" type="text" name="nombreProducto" [(ngModel)]="producto.nombre">
+            </mat-form-field>
+
+            <mat-form-field class="input-group">
+                <input class="form-control" matInput placeholder="Precio" type="number" name="precio" [(ngModel)]="producto.precio">
+            </mat-form-field>
+
+            <mat-form-field class="input-group">
+                <input class="form-control" matInput placeholder="Stock" type="number" name="stock" [(ngModel)]="producto.stock">
+            </mat-form-field>
+
+            <mat-form-field class="input-group">
+                <input class="form-control" matInput placeholder="Cantidad" type="number" name="cantidad" [(ngModel)]="producto.cantidad">
+            </mat-form-field>
+
+            <mat-form-field class="input-group">
+                <input class="form-control" matInput placeholder="Marca" type="text" name="marca" [(ngModel)]="producto.marca">
+            </mat-form-field>
+
+            <mat-form-field class="input-group">
+                <input class="form-control" matInput placeholder="Enlace" type="text" name=enlace [(ngModel)]="producto.image_url">
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-stroked-button color="primary" (click)="yesAction()">Aceptar</button>
+            <button mat-stroked-button color="primary" (click)="noAction()">Cancelar</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

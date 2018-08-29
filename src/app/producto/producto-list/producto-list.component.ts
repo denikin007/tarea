@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Producto } from '../models/producto.interface';
+import { ProductoService } from '../services/producto.service';
+import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-producto-list',
@@ -7,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductoListComponent implements OnInit {
 
-  listarProductos=[];
+  listarProductos:Producto[];
 
   campoBusqueda:string="hola como estas";
-  constructor() {
+  constructor(private productoService:ProductoService) {
 
    }
 
@@ -19,25 +22,20 @@ export class ProductoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.listarProductos=[{
-      nombre:"coca",
-      precio:20,
-      stock:10,
-      cantidad:5,
-      marca:"coca"
-    },{
-      nombre:"coca cola",
-      precio:20,
-      stock:50,
-      cantidad:10,
-      marca:"coca"
-    },{
-      nombre:"fanta",
-      precio:20,
-      stock:10,
-      cantidad:5,
-      marca:"coca"
-    }];
+    let observador:Observer<Producto[]>={
+        next: (data) => {
+          console.log(data)
+          this.listarProductos=data;
+        },
+        error: (error) => {
+          console.log('se produjo el siguiente error al repuerar la lista de productos');
+        },
+        complete: () => {
+          console.log('proceso finalizado');
+        }
+    };
+    this.productoService.getProductos()
+    .subscribe(observador);
   }
 
 }
